@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:pkgprop="http://www.scorm.com/xsd/ScormEnginePackageProperties" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd    http://www.scorm.com/xsd/ScormEnginePackageProperties ScormEnginePackageProperties.xsd">
+<general>
+	<!--****** 1 ******-->
+	<title>
+		<langstring xml:lang="en-US">Creativity and Imagination</langstring>
+	</title>
+	<!--****** 2 ******-->
+	<catalogentry>
+		<catalog>claro_FED3E1FF2B8704765177E5300B48CE78</catalog>
+		<entry>
+			<langstring xml:lang="en-US">claro_FED3E1FF2B8704765177E5300B48CE78</langstring>
+		</entry>
+	</catalogentry>
+	<language>en-US</language>
+	<!--****** 3 ******-->
+	<description>
+		<langstring xml:lang="en-US">none</langstring>
+	</description>
+	<!--****** 4 ******-->
+<keyword><langstring xml:lang="en-US">none</langstring></keyword></general>
+<lifecycle>
+	<!--****** 5 ******-->
+	<version>
+		<langstring>0</langstring>
+	</version>
+	<status>
+		<source>
+			<langstring xml:lang="x-none">LOMv1.0</langstring>
+		</source>
+		<value>
+			<langstring xml:lang="x-none">Final</langstring>
+		</value>
+	</status>
+</lifecycle>
+<metametadata>
+	<metadatascheme>ADL SCORM 1.2</metadatascheme>
+</metametadata>
+<technical>
+	<!--****** 6 ******-->
+	<format>text/html</format><format>application/x-shockwave-flash</format><location>indexAPI.html</location>
+</technical>
+<rights>
+	<!--****** 7 ******-->
+	<cost>
+		<source>
+			<langstring xml:lang="x-none">LOMv1.0</langstring>
+		</source>
+		<value>
+			<langstring xml:lang="x-none">no</langstring>
+		</value>
+	</cost>
+	<!--****** 8 ******-->
+	<copyrightandotherrestrictions>
+		<source>
+			<langstring xml:lang="x-none">LOMv1.0</langstring>
+		</source>
+		<value>
+			<langstring xml:lang="x-none">no</langstring>
+		</value>
+	</copyrightandotherrestrictions>
+</rights>
+<classification>
+	<purpose>
+		<source>
+			<langstring xml:lang="x-none">LOMv1.0</langstring>
+		</source>
+		<value>
+			<langstring xml:lang="x-none">Educational Objective</langstring>
+		</value>
+	</purpose>
+	<!--****** 9 ******-->
+	<description>
+		<langstring xml:lang="en-US">none</langstring>
+	</description>
+	<!--****** 10 ******-->
+<keyword><langstring xml:lang="en-US">none</langstring></keyword></classification>
+</lom>

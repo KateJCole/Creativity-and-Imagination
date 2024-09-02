@@ -1,0 +1,90 @@
+
+		<!DOCTYPE html>
+		<!--/* Copyright ï¿½ 2003-2009 Rustici Software, LLC  All Rights Reserved. */-->
+		<HTML>
+			<HEAD id="head" data-viewport-width="1010">
+			
+			<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,width=device-width,minimal-ui" id="viewportMetaTag">
+			<style>				
+				@-ms-viewport, @-webkit-viewport, @-moz-viewport, @-o-viewport, @viewport{
+					width: device-width;
+					zoom: 1.0;
+					max-zoom: 1.0;
+					min-zoom: 1.0;
+					user-zoom: fixed;
+					orientation: auto;
+				}
+			</style>
+		
+			<TITLE></TITLE>			
+			<script src="../scripts/dkiUA.js"></script>
+			<script src="../scripts/viewport.js"></script>
+			<script src="scormdriver.js"></script>
+			<script src="Configuration.js"></script>
+			<script>
+				strContentLocation = "../content.html";
+				var params = "";
+				if(location.search != ""){
+					params += location.search.replace("?", "");
+				}
+				if(parent.location.search != ""){
+					if(params == ""){
+						params += parent.location.search.replace("?", "");
+					}
+					else if(params.indexOf(parent.location.search.replace("?", "")) == -1){
+						//only add if its not already there
+						params += parent.location.search.replace("?", "&");
+					}
+				}
+				if(params != ""){
+					strContentLocation += "?" + params;
+				}	
+				function LoadContent(){
+					var rootLevel;
+					window.scormdriver_content.document.location.href = strContentLocation;
+
+					if (!(typeof(FORCED_COMMIT_TIME) == "undefined") && FORCED_COMMIT_TIME > 0){
+						setInterval(CommitData,FORCED_COMMIT_TIME);
+					}
+					/*
+					if (top.opener) {
+						rootLevel = top.opener.top;
+					}
+					else {
+						rootLevel = top;
+					}
+					rootLevel._dki_contentFrame = window.scormdriver_content;
+					*/
+				}
+				function setContentHeight(size){
+					size +=	50;
+					document.getElementById("scormdriver_content").style.height = size + "px";
+				}
+				function init(){
+					if(dkiUA.cellcast){
+						document.documentElement.className += "cellcast";
+					}
+				}
+			</script>
+			<style>
+				html.cellcast body{
+					overflow: auto;
+					-webkit-overflow-scrolling: touch;
+				}	
+				html, body {height:100%;width:100%;}
+				html {overflow: hidden;}
+				html.cellcast{
+					overflow:initial;
+				}
+				*{margin:0px;padding:0px;}
+				/*We use height: 100vh for mobile devices. It will stop the address bar from affecting the overall height of the content and leaving white space. 100% is a fallback for browsers that don't support vh*/
+				#scormdriver_content{height:100%;height:100vh;height:calc(100svh - 2px);width:100%;overflow-x:hidden;overflow-y:auto;}
+				#AICCComm, #rusticisoftware_aicc_result, #NothingFrame {height:0px;width:0px;visibility:hidden;}
+			</style>
+			</HEAD>
+			<body onload="init();Start()">
+				<iframe id="scormdriver_content" name="scormdriver_content" src="blank.html" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+				<iframe id="NothingFrame" name="NothingFrame" src="blank.html"></iframe>
+			</body>
+		</HTML>
+	

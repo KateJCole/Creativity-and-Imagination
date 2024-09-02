@@ -1,0 +1,147 @@
+
+	<!DOCTYPE html>
+	<html class="dark">
+		<head>			
+			<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">			
+			
+				<link rel="stylesheet" href="design/resources/compiled.css?v=24-08-02-09-15-41-847" />
+			
+			<link rel="stylesheet" href="css/player-core.css"/>
+			<script src="scripts/dkiUA.js"></script>
+			<style>
+				#popupBlocked{
+					display: none;
+				}
+				html, body {
+					height: 100%;
+				}
+				body {
+					font-size: 14px;
+					color: #f6f6f6; 
+				} 
+				.contentWrapper{
+					max-width:350px;
+					margin: auto;
+					display: none;
+					height: 100%;
+				}
+				.contentContainer {
+					display: table-cell;
+					vertical-align: middle; 
+				}
+				.content {
+				    border: 1px solid #ccc;
+				    background-color: #ffffff;
+				}
+				.heroImage {
+					height: 100%;
+					width: 100%;
+				} 
+				.courseTitle { 
+					color: #333333;
+					font-size: 24px;  
+					text-align: center;							
+				    padding: 0 10px;
+				}				
+				.courseDesc { 
+					color: #666666;
+					font-size: 12px;  
+					text-align: left;
+				    padding: 0 10px;
+				}				
+				.buttonWrapper{
+					text-align: center;
+					margin: 16px 0;
+				}
+				.launchButton{
+					width: 240px;
+					height: 80px;
+					font-size: 24px;
+					border-radius: 20px
+				}
+			</style>				
+		</head>
+		<body onload="init();" onbeforeunload="beforeUnload();">
+			<div class="contentWrapper" id="contentWrapper">
+				<div class="contentContainer">	
+					<div class="content"> 	 
+						
+							<div class="courseTitle" style="margin-top:26px">
+								Creativity and Imagination 
+							</div>
+							<div class="courseDesc" style="margin-top:26px">
+								
+							</div>
+							<div class="buttonWrapper">
+								<input type="button" class="btn-primary launchButton" value="Launch Course" onclick="launchWindow()" />
+							</div>							 
+								
+
+
+					</div>
+				</div>
+			</div>
+		</body>
+		<script>
+			var courseWin = null;
+			var launchInNewWindow = false;	 		
+			if(dkiUA.mobile){
+				
+			}
+			else{
+				
+			}
+			function init(){
+				launchWindow();	
+						
+			}
+			function launchWindow(){
+				var indexUrl = "SCORMDriver/indexAPI.html";
+				var params = "";
+				if(location.search != ""){
+					params += location.search.replace("?", "");
+				}
+				try{
+					if(parent.location.search != ""){
+						if(params == ""){
+							params += parent.location.search.replace("?", "");
+						}
+						else if(params.indexOf(parent.location.search.replace("?", "")) == -1){
+							//only add if its not already there
+							params += parent.location.search.replace("?", "&");
+						}
+					}
+				}
+				catch(e){
+					//parent not accesible - perhaps xdomain
+				}
+				if(params != ""){
+					indexUrl += "?" + params;
+				}					
+				if(launchInNewWindow){
+					document.getElementById("contentWrapper").style.display = "table";
+					courseWin = window.open(indexUrl, "courseWin", "width=1010, height=643, resizable=yes, channelmode=no, directories=no, fullscreen=no, location=no, menubar=no, status=no, titlebar=no, toolbar=no");										
+					if(courseWin != null){
+						setInterval(function(){
+							if(courseWin.closed && window.opener){
+								window.close();
+							}
+						}, 500);
+					}
+				}
+				else{
+					location.href = indexUrl;
+				}
+			}
+			function beforeUnload(){
+				if(launchInNewWindow){
+					courseWin.close();
+				}
+			}	
+			
+				launchWindow();
+				
+		</script>			
+	</html>
+	
